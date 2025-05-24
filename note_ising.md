@@ -41,7 +41,7 @@ Let's now more discuss about the simulation itself.
 
 ## About the simulation
 
-As I said above, we will restrict ourself to an uniformly equally-spaced grid of size $\{ 0, \cdots, N - 1 \} \times \{ 0, \cdots, N - 1 \}$.
+As I said above, we will restrict ourself to an uniformly equally-spaced grid of size ${ 0, \cdots, N - 1 } \times { 0, \cdots, N - 1 }$.
 The first remark comes from the fact that computing the partition function by actually summing over all possible configurations $(\alpha)$ is infeasible in practice. If there is $N^2$ nodes in the grid, then there is a total of $2^{N^2}$ possible configurations. In practice, one sums only over the most probable configurations, that is, those that are not too 'far' from the current one. Any macroscopic quantity at equilibrium can be computed as $\langle A \rangle = \displaystyle\frac{\sum_\alpha A_\alpha e^{-E_\alpha/kT}}{Z}$, where $A_\alpha$ is the value taken by $A$ at the particular configuration $\alpha$. This quantity is an average because the system explores many different configurations on a macroscopic time scale, so measuring $A_\alpha$ would not make actually sense. 
 
 Also, $J_{i,j}$ will be assumed constant at all node.
