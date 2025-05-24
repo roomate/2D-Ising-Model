@@ -33,9 +33,7 @@ $
 where $N$ is the number of spin in the lattice, $I = \frac{1}{2\pi}\displaystyle\int_{0}^\pi d\varphi \log(1/2[1 + (1 - x(T)^2\sin^2(\varphi))^{1/2}])$ is an elliptical integral and $x(T) = \frac{2\sinh(2J/k\_BT)}{\cosh^2(2J/k\_BT)}$.
 
 An expression for the spontaneous magnetization can be derived:
-$
-M = (1 - \sinh(2\beta J)^{-1})^{1/8},
-$
+$M = (1 - \sinh(2\beta J)^{-1})^{1/8},$
 illustrating a critic exponent of $1/8$.
 
 Let's now more discuss about the simulation itself.
@@ -58,9 +56,7 @@ To make evolve a site $(i,j)$ taken at random, first compute its energy: $H_{i,j
 Then flip its sign $\bar E_{(i,j)} = -E_{(i,j)}$. If the flipped spin is energetically less favoured, do not change it. Otherwise, flip it with probability $\exp(-(\bar E_{(i,j)}  - E_{(i,j)})/kT) = \exp(2E_{(i,j)}/kT)$. 
 
 In 2D Ising Model, the critical temperature $T\_c$ verifies $\sinh(2J/kT\_c) = 1$ according to Onsager's exact model. It can be equivalently expressed as:
-$
-T\_c = \frac{2J}{k\_B\log(1 + \sqrt{2})}.
-$
+$T\_c = \frac{2J}{k\_B\log(1 + \sqrt{2})}.$
 In a physically exact model, $T\_c = 657 K$ for $J = 4e-21$ Joule. To simulate a ferromagnetic material, simply take the opposite sign.
 
 Note: The `exp` method is computationally very expensive, so avoiding this calculation at every loop would save a significat amount of time. Noticing that only five energy states are possible if $B=0$, the exponential factor takes value in the set $\{1, e^{2\beta J}, e^{4\beta J}, e^{-2\beta J}, e^{-4\beta J} \}$, computing all of them once is enough. We can actually restrict to the set $\{1, e^{2\beta J}\}$ and get the three other values by taking the square and/or the inverse. Finally, since a flip might occurs if and only if $E_{i,j} < 0$, in practice, one considers only the set: $\{e^{-2\times 2\beta J}, e^{-2 \times 4\beta J}\}$.

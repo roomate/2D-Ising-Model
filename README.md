@@ -7,7 +7,7 @@ The command line allows you to tune out some parameters, such as the dimensions 
 - --`B`. External magnetic field applied in Tesla. Default Value: 0 T.
 - --`T`. Temperature of the thermal bath in kelvin. Default Value: 300K.
 - --`J`. Exchange Interaction in Joule. Default Value: $4e-21$ J.
-- --`bound\_cond`. Boundary conditions of the domain. Default Value: "periodic".
+- --`bound_cond`. Boundary conditions of the domain. Default Value: "periodic".
 - --`Initialization`. How to initialize the domain. Default Value: "random".
 - --`cmap`. Color map to display the lattice. Default Value: "viridis".
 
