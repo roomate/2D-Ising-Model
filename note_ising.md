@@ -2,7 +2,8 @@
 
 ## Description
 
-The main objective of this notebook is to present the famous Ising model in 2 dimensions. In particular, explore the numerical simulations and compare them with the theoretical predictions, well known in $1D$ and $2D$. The Ising model considers a uniform and equally spaced grid $\{0, \cdots, N - 1 \} \times \{ 0, \cdots, N - 1 \}$, where at each node $(i,j)$ is located an atom, with a spin quantum number $S_{i,j}$ assigned. One makes the assumption that this (normalized) spin can take only two values: $S = 1$ or $S = -1$, accordingly to the Quantum theory. This is simplified because in practice, an atom could have a much larger spin, possibly integer.
+The main objective of this notebook is to present the famous Ising model in 2 dimensions. In particular, explore the numerical simulations and compare them with the theoretical predictions, well known in $1D$ and $2D$. The Ising model considers a uniform and equally spaced grid $[0, \cdots, N - 1] \times [0, \cdots, N - 1]$, where at each node $(i,j)$ is located an atom, with a spin quantum number $S_{i,j}$ assigned. One makes the assumption that this (normalized) spin can take only two values: $S = 1$ or $S = -1$, accordingly to the Quantum theory. This is simplified because in practice, an atom could have a much larger spin, possibly integer.
+
 
 This toy model is quite useful in statistical physics and Quantum Field Theory, because, despite its simplistic approach to model magnetism, it contains an impressive amount of physical phenomenon, such as $2^{\text{nd}}$ order phase transition, renormalization groups, mean field... It is important to keep in mind that despite its popularity among physicists and age, a lot questions remain open. The partition function could only be calculated analytically for systems living in one or two spatial dimensions, with periodic boundary conditions. The latter case assumes no magnetic field is applied to the system.
 
@@ -41,7 +42,6 @@ Let's now more discuss about the simulation itself.
 
 ## About the simulation
 
-As I said above, we will restrict ourself to an uniformly equally-spaced grid of size {$0, \cdots, N - 1 $} $\times$ {$ 0, \cdots, N - 1$}.
 The first remark comes from the fact that computing the partition function by actually summing over all possible configurations $(\alpha)$ is infeasible in practice. If there is $N^2$ nodes in the grid, then there is a total of $2^{N^2}$ possible configurations. In practice, one sums only over the most probable configurations, that is, those that are not too 'far' from the current one. Any macroscopic quantity at equilibrium can be computed as $\langle A \rangle = \displaystyle\frac{\sum_\alpha A_\alpha e^{-E_\alpha/kT}}{Z}$, where $A_\alpha$ is the value taken by $A$ at the particular configuration $\alpha$. This quantity is an average because the system explores many different configurations on a macroscopic time scale, so measuring $A_\alpha$ would not make actually sense. 
 
 Also, $J_{i,j}$ will be assumed constant at all node.
