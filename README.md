@@ -23,6 +23,6 @@ followed by the potential flags desired, as described above.
 
 You should see appear the lattice evolving in time with two sliders. One vertical to control the temperature $T$, the other horizontal to control the magnitude of the magnetic field $B$. On your right will be displayed the magnetization at time $t$ (in blue), and an average over the $10 000$ last iterations (in red).
 
-An illustration is below:
+An illustration is given below:
 
 ![Illustration](interface.png)
