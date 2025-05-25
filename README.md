@@ -33,12 +33,23 @@ Then, to run the simulation, type the prompt:
 python3 ising_model
 ```
 
-followed by the potential flags desired, as described above.
+followed by the flags desired, as described above.
 
-You should see appear the lattice evolving in time with two sliders. One vertical to control the temperature $T$, the other horizontal to control the magnitude of the magnetic field $B$. On your right will be displayed the magnetization at time $t$ (in blue), and an average over the $10 000$ last iterations (in red).
+You should see appear the lattice evolving in time with two sliders. One vertical to control the temperature $T$, the other horizontal to control the magnitude of the magnetic field $B$. On your right will be displayed the magnetization at time $t$ (in blue), and an average over the $1000$ last iterations (in red).
 
 ## Example
 
-An illustration is given below:
+This section list several GIF illutrates some interesting properties of the Ising model in 2 dimensions. I average over $100$ (and not $1000$) iterations in the gif though. With the default values, $T\_c \approx 657 K$.
 
-![Illustration](interface.png)
+- Case 1: No magnetic field and $T = 300 < T\_c$. You observe that, as expected, the material acquires magnetization after a relaxation time to reach thermodynamic equilibrium.
+
+![No\_mag\_room\_temperature](Gifs/Ising_movie_T=300.gif)
+
+- Case 2: No magnetic field and $T = 1500 > T\_c$. Once again, as expected, magnetization remains null, despite starting magnetized.
+
+![](Gifs/Ising_movie_T2000.gif)
+
+- Case 3: $B = 10T$ and $T = 200$.
+
+![](Gifs/Ising_movie_T=200_B=10.gif)
+

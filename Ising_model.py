@@ -1,7 +1,7 @@
 import scipy.stats as stat
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
+from matplotlib.animation import FuncAnimation, PillowWriter
 from matplotlib.widgets import Button, Slider
 from collections.abc import Callable
 import argparse
@@ -156,25 +156,23 @@ class Ising(object):
 
 if __name__ == '__main__':
 
-    #I should add a parser
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--Lx", default=50, action='store', help="Length of the lattice along the x-axis")
-    parser.add_argument("--Ly", default=50, action='store', help="Length of the lattice along the y-axis")
-    parser.add_argument("-T", default=300, action='store', help="Temperature of the thermal bath")
-    parser.add_argument("-B", default=0, action='store', help="Temperature of the thermal bath")
-    parser.add_argument("-J", default=4e-21, action='store', help="Exchange interaction of the system")
+    parser.add_argument("--Lx", default=50, action='store', help="Length of the lattice along the x-axis", type=int)
+    parser.add_argument("--Ly", default=50, action='store', help="Length of the lattice along the y-axis", type=int)
+    parser.add_argument("-T", default=300, action='store', help="Temperature of the thermal bath", type=float)
+    parser.add_argument("-B", default=0, action='store', help="Temperature of the thermal bath", type=float)
+    parser.add_argument("-J", default=4e-21, action='store', help="Exchange interaction of the system", type=float)
 
-    parser.add_argument("--lb_B", default=-10, action='store', help="Magnetic field's lower bound of the slider")
-    parser.add_argument("--lb_T", default=10, action='store', help="Temperature's lower bound of the slider")
-    parser.add_argument("--ub_T", default=2000, action='store', help="Temperature's upper bound of the slider")
-    parser.add_argument("--ub_B", default=10, action='store', help="Magnetic field's upper bound of the slider")
+    parser.add_argument("--lb_B", default=-10, action='store', help="Magnetic field's lower bound of the slider", type=float)
+    parser.add_argument("--lb_T", default=10, action='store', help="Temperature's lower bound of the slider", type=float)
+    parser.add_argument("--ub_T", default=2000, action='store', help="Temperature's upper bound of the slider", type=float)
+    parser.add_argument("--ub_B", default=10, action='store', help="Magnetic field's upper bound of the slider", type=float)
 
-
-    parser.add_argument("--bound_cond", default="periodic", action='store', help="Periodic condition", choices=["periodic", "isolated"])
-    parser.add_argument("--Initialization", default="random", action='store', help="Initialize the lattice", choices=["uniform", "+", "-", "half"])
-    parser.add_argument("--uniform_mag",default=True, action='store', help="Is the magnetic field uniform ?")
-    parser.add_argument("--cmap",default="viridis", action='store', help="Is the magnetic field uniform ?")
+    parser.add_argument("--bound_cond", default="periodic", action='store', help="Periodic condition", choices=["periodic", "isolated"], type=str)
+    parser.add_argument("--Initialization", default="random", action='store', help="Initialize the lattice", choices=["uniform", "+", "-", "half"], type=str)
+    parser.add_argument("--uniform_mag",default=True, action='store', help="Is the magnetic field uniform ?", type=str)
+    parser.add_argument("--cmap",default="viridis", action='store', help="Is the magnetic field uniform ?", type=str)
 
     args = parser.parse_args()
 
@@ -265,9 +263,6 @@ if __name__ == '__main__':
         line2.set_data(t, history_mean)
         return im, line, line2
 
-    #Declare an animation
-    ani = FuncAnimation(fig=fig, func=updatefig,  blit=True, interval = 1, cache_frame_data=False)
-
     # Create a `matplotlib.widgets.Button` to reset the sliders to initial values.
     resetax = fig.add_axes([0.8, 0.025, 0.1, 0.04])
     button = Button(resetax, 'Reset', hovercolor='0.975')
@@ -277,5 +272,8 @@ if __name__ == '__main__':
         mag_slider.reset()
         Temp_slider.reset()
     button.on_clicked(reset)
+
+    #Declare an animation
+    ani = FuncAnimation(fig=fig, func=updatefig,  blit=True, interval = 1, cache_frame_data=False)
 
     plt.show()

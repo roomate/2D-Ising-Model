@@ -32,9 +32,8 @@ Z = \bigg(2\cosh\large(\frac{2J}{k\_BT}\large)\exp{I}\bigg)^N,
 $
 where $N$ is the number of spin in the lattice, $I = \frac{1}{2\pi}\displaystyle\int_{0}^\pi d\varphi \log(1/2[1 + (1 - x(T)^2\sin^2(\varphi))^{1/2}])$ is an elliptical integral and $x(T) = \frac{2\sinh(2J/k\_BT)}{\cosh^2(2J/k\_BT)}$.
 
-An expression for the spontaneous magnetization can be derived:
-$M = (1 - \sinh(2\beta J)^{-1})^{1/8},$
-illustrating a critic exponent of $1/8$.
+
+Onsager demonstrated the such system exhibits a second order phase transition, with order parameter $M = \sum\limits_{(i, j) \in L} S_{(i,j)}$. It means that whenever $T > T\_c$, $<M> = 0$, no macroscopic magnetization is observed, but if $T < T\_c$, the material acquires a spontaneous magnetization $M = (1 - \sinh(2\beta J)^{-1})^{1/8}.$ Note that the transition is continuous, i.e. $M = 0$ at $T = T\_c$. That is a specific behaviour to second order phase transition. However, if a magnetic field is applied to the system, no phase transition occurs at all, for any temperature.
 
 Let's now more discuss about the simulation itself.
 
