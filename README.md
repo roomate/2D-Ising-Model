@@ -45,7 +45,7 @@ This section list several GIF illutrates some interesting properties of the Isin
 
 ![No\_mag\_room\_temperature](Gifs/Ising_movie_T=300.gif)
 
-- Case 2: No magnetic field and $T = 2000 K> T\_c$. Once again, as expected, magnetization remains null, despite starting magnetized.
+- Case 2: No magnetic field and $T = 2000 K> T\_c$. Once again, as expected, magnetization ends up null in the long run, despite starting magnetized.
 
 ![](Gifs/Ising_movie_T=2000.gif)
 
