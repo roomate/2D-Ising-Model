@@ -49,7 +49,7 @@ This section list several GIF illutrates some interesting properties of the Isin
 
 ![](Gifs/Ising_movie_T2000.gif)
 
-- Case 3: $B = 10T$ and $T = 200$.
+- Case 3: $B = 10 Tesla$ and $T = 200$.
 
 ![](Gifs/Ising_movie_T=200_B=10.gif)
 
