@@ -165,6 +165,12 @@ if __name__ == '__main__':
     parser.add_argument("-B", default=0, action='store', help="Temperature of the thermal bath")
     parser.add_argument("-J", default=4e-21, action='store', help="Exchange interaction of the system")
 
+    parser.add_argument("--lb_B", default=-10, action='store', help="Magnetic field's lower bound of the slider")
+    parser.add_argument("--lb_T", default=10, action='store', help="Temperature's lower bound of the slider")
+    parser.add_argument("--ub_T", default=2000, action='store', help="Temperature's upper bound of the slider")
+    parser.add_argument("--ub_B", default=10, action='store', help="Magnetic field's upper bound of the slider")
+
+
     parser.add_argument("--bound_cond", default="periodic", action='store', help="Periodic condition", choices=["periodic", "isolated"])
     parser.add_argument("--Initialization", default="random", action='store', help="Initialize the lattice", choices=["uniform", "+", "-", "half"])
     parser.add_argument("--uniform_mag",default=True, action='store', help="Is the magnetic field uniform ?")
@@ -192,8 +198,8 @@ if __name__ == '__main__':
     Temp_slider = Slider(
         ax=axamp,
         label="Temperature [°Kelvin]",
-        valmin=1e1,
-        valmax=2e3,
+        valmin=args.lb_T,
+        valmax=args.ub_T,
         valinit=T,
         orientation="vertical"
     )
@@ -211,8 +217,8 @@ if __name__ == '__main__':
         mag_slider = Slider(
             ax=axmag,
             label='B [Tesla]',
-            valmin=-10,
-            valmax=10,
+            valmin=args.lb_B,
+            valmax=args.ub_B,
             valinit=B,
         )
 
