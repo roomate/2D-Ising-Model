@@ -41,15 +41,15 @@ You should see appear the lattice evolving in time with two sliders. One vertica
 
 This section list several GIF illutrates some interesting properties of the Ising model in 2 dimensions. I average over $100$ (and not $1000$) iterations in the gif though. With the default values, $T\_c \approx 657 K$.
 
-- Case 1: No magnetic field and $T = 300 < T\_c$. You observe that, as expected, the material acquires magnetization after a relaxation time to reach thermodynamic equilibrium.
+- Case 1: No magnetic field and $T = 300 K < T\_c$. You observe that, as expected, the material acquires magnetization after a relaxation time to reach thermodynamic equilibrium.
 
 ![No\_mag\_room\_temperature](Gifs/Ising_movie_T=300.gif)
 
-- Case 2: No magnetic field and $T = 1500 > T\_c$. Once again, as expected, magnetization remains null, despite starting magnetized.
+- Case 2: No magnetic field and $T = 2000 K> T\_c$. Once again, as expected, magnetization remains null, despite starting magnetized.
 
-![](Gifs/Ising_movie_T2000.gif)
+![](Gifs/Ising_movie_T=2000.gif)
 
-- Case 3: $B = 10 Tesla$ and $T = 200$.
+- Case 3: $B = 10$ Tesla and $T = 200 K$.
 
 ![](Gifs/Ising_movie_T=200_B=10.gif)
 
