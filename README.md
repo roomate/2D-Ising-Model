@@ -51,5 +51,5 @@ This section list several GIF illutrates some interesting properties of the Isin
 
 - Case 3: $B = 10$ Tesla and $T = 200 K$.
 
-![](Gifs/Ising_movie_T=200_B=10.gif)
+![](Gifs/Ising_movie_T=20_B=10.gif)
 
