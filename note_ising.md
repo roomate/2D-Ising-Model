@@ -13,10 +13,10 @@ Finally, the cases $\mathbb{R}^d, d \geq 4$ is approximated quite well by the Cu
 
 In statistical physics, a problem is in general fully solved when you know how to compute analytically the partition function, usually noted $Z$, because most of the thermodynamical quantities of interest can be directly derived from it and its partial derivatives. The partition function is defined in the classical theory as $Z = \sum\limits_\alpha e^{-E_\alpha/kT}$, where the sum is made over all configurations $(\alpha)$ of the sysem in the thermal bath at temperature $T$. Indeed, it is known that the free energy $F$ of a system if directly related to the partition function by the reatlion $F = - kT\log(Z)$. In an Ising model, a configuration of the system is the knowledge of the spin's value at every node.
 
-The hamiltonian/Energy of an Ising system is $E = -g\mu\_B B \sum\limits_{i, j} S_{i,j} - \sum\limits_{i, j} \sum\limits_{(u,v) \sim \text{NN}(i, j)}J_{i,j} S_{i,j}S_{u,v}. = \sum_{(i,j)} E_{(i,j)}$, where $E_{(i,j)}$ is the hamiltonian at node $(i,j)$.
+The hamiltonian/Energy of an Ising system is $E = -g\mu\_B B \sum\limits_{i, j} S_{i,j} - \sum\limits_{i, j} \sum\limits_{(u,v) \sim \text{NN}(i, j)}J_{i,j} S_{i,j}S_{u,v} = \sum_{(i,j)} E_{(i,j)}$, where $E_{(i,j)}$ is the hamiltonian at node $(i,j)$.
 The Index $\text{NN}(i, j)$ denotes the set of nearest neighbours of the node $(i,j)$, this is the term that is truly dimension-dependant. In $1D$, an inside-node has $2$ nearest neighbours. No phase transition occurs at all. In $2D$ however, an inside-node has $4$ nearest neighbours, and a $2^{\text{nd}}$ order phase transition actually occurs. Hence, this slight change in the equations fundamentally change the behaviours of the system, and induces a discontinuity around a critical temperature $T\_c$.
 
-Let's break down the different terms. The first term contains the interaction with the environment. Recall that in classical theory of magnetism, one can show that $E = -m\cdot B$, where $m$ is the magnetization vector of the system. There is a kind of similar term for quantum systems: $H = g\mu\_B S \cdot B$.
+Let's break down the different terms. The first term contains the interaction with the environment. Recall that in classical theory of magnetism, one can show that $E = -m\cdot B$, where $m$ is the magnetization vector of the system. There is a kind of similar term for quantum systems: $H = -g\mu\_B S \cdot B$.
 1. $g$ is the g-factor. It is a scalar that relates the angular momentum with the magnetic moment. In first approximation, for quantum spin, $g \approx 2$. 
 2. $B$ is the exterior magnetic field imposed by the operator. If $B \neq 0$, then no phase transition occurs.
 3. $\mu\_B$ is the Bohr magneton.
@@ -32,8 +32,10 @@ Z = \bigg(2\cosh\large(\frac{2J}{k\_BT}\large)\exp{I}\bigg)^N,
 $
 where $N$ is the number of spin in the lattice, $I = \frac{1}{2\pi}\displaystyle\int_{0}^\pi d\varphi \log(1/2[1 + (1 - x(T)^2\sin^2(\varphi))^{1/2}])$ is an elliptical integral and $x(T) = \frac{2\sinh(2J/k\_BT)}{\cosh^2(2J/k\_BT)}$.
 
+In 2D Ising Model, the critical temperature $T\_c$ verifies $\sinh(2J/kT\_c) = 1$ according to Onsager's exact model. It can be equivalently expressed as:
+$T\_c = \frac{2J}{k\_B\log(1 + \sqrt{2})}.$
 
-Onsager demonstrated the such system exhibits a second order phase transition, with order parameter $M = \sum\limits_{(i, j) \in L} S_{(i,j)}$. It means that whenever $T > T\_c$, $<M> = 0$, no macroscopic magnetization is observed, but if $T < T\_c$, the material acquires a spontaneous magnetization $M = (1 - \sinh(2\beta J)^{-1})^{1/8}.$ Note that the transition is continuous, i.e. $M = 0$ at $T = T\_c$. That is a specific behaviour to second order phase transition. However, if a magnetic field is applied to the system, no phase transition occurs at all, for any temperature.
+Onsager demonstrated the such system exhibits a second order phase transition, with order parameter $M = \sum\limits_{(i, j) \in L} S_{(i,j)}$. It means that whenever $T > T\_c$, $M = 0$, no macroscopic magnetization is observed, but if $T < T\_c$, the material acquires a spontaneous magnetization $M = (1 - \sinh(2\beta J)^{-1})^{1/8}.$ Note that the transition is continuous, i.e. $M = 0$ at $T = T\_c$. That is a specific behaviour to second order phase transition. However, if a magnetic field is applied to the system, no phase transition occurs at all, for any temperature. It is theoretically very simple to prove. If we note $\phi = F - HM$, the free energy of the system, then at equilibrium, one should have $\partial\_M\phi = \partial\_M F - H = 0$, implying that $\partial\_M F \neq 0$.
 
 Let's now more discuss about the simulation itself.
 
@@ -54,8 +56,6 @@ The algorithm implemented as described below.
 To make evolve a site $(i,j)$ taken at random, first compute its energy: $H_{i,j} = -g\mu\_B B S_{i,j} - J S_{i,j}\sum\limits_{(i, j) \sim (m,n)}S_{m,n}$.
 Then flip its sign $\bar E_{(i,j)} = -E_{(i,j)}$. If the flipped spin is energetically less favoured, do not change it. Otherwise, flip it with probability $\exp(-(\bar E_{(i,j)}  - E_{(i,j)})/kT) = \exp(2E_{(i,j)}/kT)$. 
 
-In 2D Ising Model, the critical temperature $T\_c$ verifies $\sinh(2J/kT\_c) = 1$ according to Onsager's exact model. It can be equivalently expressed as:
-$T\_c = \frac{2J}{k\_B\log(1 + \sqrt{2})}.$
 In a physically exact model, $T\_c = 657 K$ for $J = 4e-21$ Joule. To simulate a ferromagnetic material, simply take the opposite sign.
 
 Note: The `exp` method is computationally very expensive, so avoiding this calculation at every loop would save a significat amount of time. Noticing that only five energy states are possible if $B=0$, the exponential factor takes value in the set $\{1, e^{2\beta J}, e^{4\beta J}, e^{-2\beta J}, e^{-4\beta J} \}$, computing all of them once is enough. We can actually restrict to the set $\{1, e^{2\beta J}\}$ and get the three other values by taking the square and/or the inverse. Finally, since a flip might occurs if and only if $E_{i,j} < 0$, in practice, one considers only the set: $\{e^{-2\times 2\beta J}, e^{-2 \times 4\beta J}\}$.
