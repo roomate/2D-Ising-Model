@@ -27,11 +27,8 @@ The second term describes the self-interaction of the system, via a coupling par
 ### Exact solution in 2D
 
 Like I said above, the 2D model admits an exact solution, written below:
-$
-Z = \bigg(2\cosh\large(\frac{2J}{k\_BT}\large)\exp{I}\bigg)^N,
-$
-where $N$ is the number of spin in the lattice, $I = \frac{1}{2\pi}\displaystyle\int_{0}^\pi d\varphi \log(1/2[1 + (1 - x(T)^2\sin^2(\varphi))^{1/2}])$ is an elliptical integral and $x(T) = \frac{2\sinh(2J/k\_BT)}{\cosh^2(2J/k\_BT)}$.
-
+$Z = \bigg(2\cosh\large(\frac{2J}{k\_BT}\large)\exp{I}\bigg)^N,$
+where $N$ is the number of spin in the lattice, $I = \frac{1}{2\pi}\displaystyle\int_{0}^\pi d\varphi \log(1/2[1 + (1 - x(T)^2\sin^2(\varphi))^{1/2}])$ is an elliptical integral and $x(T) = \frac{2\sinh(2J/k\_BT)}{\cosh^2(2J/k\_BT)}$. Define $\beta = \frac{1}{k\_B T}$
 In 2D Ising Model, the critical temperature $T\_c$ verifies $\sinh(2J/kT\_c) = 1$ according to Onsager's exact model. It can be equivalently expressed as:
 $T\_c = \frac{2J}{k\_B\log(1 + \sqrt{2})}.$
 
