@@ -1,8 +1,10 @@
 # 2D Ising Model
 
+## Description
 This repo contains a small code to simulate an Ising model on a rectangular 2D domain. You can find some explanations in the '[note\_ising](https://github.com/roomate/2D-Ising-Model/blob/master/note_ising.md)' markdown.
 
-The command line allows you to tune out some parameters, such as the dimensions of the lattice, or the initial conditions. More specifically, the parser admits the following flags:
+## Run the code
+The command line interface allows you to tune out some parameters, such as the dimensions of the lattice, or the initial conditions. More specifically, the parser admits the following flags:
 
 - `--B`. External magnetic field applied in Tesla. Default Value: 0 T.
 - `--T`. Temperature of the thermal bath in kelvin. Default Value: 300K.
