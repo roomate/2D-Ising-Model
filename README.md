@@ -6,7 +6,7 @@ This repo contains a small code to simulate an Ising model on a rectangular 2D d
 ## Run the code
 The command line interface allows you to tune out some parameters, such as the dimensions of the lattice, or the initial conditions.
 ```code
-python3 Kalman_Filter 
+python3 Ising_model
 ```
 
 More specifically, the parser admits the following flags:
