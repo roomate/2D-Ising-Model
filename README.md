@@ -15,7 +15,11 @@ More specifically, the parser admits the following flags:
 - `--T`. Temperature of the thermal bath in kelvin. Default Value: 300K.
 - `--J`. Exchange Interaction in Joule. Default Value: $4e-21$ J. Take it negative for antiferromagnetic property.
 - `--bound_cond`. Boundary conditions of the domain. Default Value: "periodic".
-- `--Initialization`. How to initialize the domain. Default Value: "random". Choice possible in ["half", "+", "-", "random"].
+- `--Initialization`. How to initialize the domain. Default Value: "random". Possbible choice are [`half`, `+`, `-`, `random`].
+    * `half`: the right half is spin-up, the left half is spin-down.
+    * `+`: all spins are up.
+    * `-`: all spins are down.
+    * `random`: the spin of a site is sampled from a Bernouilli law with $p=1/2$.
 - `--cmap`. Color map to display the lattice. Default Value: "viridis".
 - `--lb_T`. Temperature's lower bound of the slider. Default value: 10K.
 - `--up_T`. Temperature's upper bound of the slider. Default value: 1000K.
