@@ -13,9 +13,9 @@ More specifically, the parser admits the following flags:
 
 - `--B`. External magnetic field applied in Tesla. Default Value: 0 T.
 - `--T`. Temperature of the thermal bath in kelvin. Default Value: 300K.
-- `--J`. Exchange Interaction in Joule. Default Value: $4e-21$ J.
+- `--J`. Exchange Interaction in Joule. Default Value: $4e-21$ J. Take it negative for antiferromagnetic property.
 - `--bound_cond`. Boundary conditions of the domain. Default Value: "periodic".
-- `--Initialization`. How to initialize the domain. Default Value: "random".
+- `--Initialization`. How to initialize the domain. Default Value: "random". Choice possible in ["half", "+", "-", "random"].
 - `--cmap`. Color map to display the lattice. Default Value: "viridis".
 - `--lb_T`. Temperature's lower bound of the slider. Default value: 10K.
 - `--up_T`. Temperature's upper bound of the slider. Default value: 1000K.
