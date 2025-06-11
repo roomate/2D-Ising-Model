@@ -11,20 +11,21 @@ python3 Ising_model
 
 More specifically, the parser admits the following flags:
 
-- `--B`. External magnetic field applied in Tesla. Default Value: 0 T.
-- `--T`. Temperature of the thermal bath in kelvin. Default Value: 300K.
-- `--J`. Exchange Interaction in Joule. Default Value: $4e-21$ J. Take it negative for antiferromagnetic property.
-- `--bound_cond`. Boundary conditions of the domain. Default Value: "periodic".
-- `--Initialization`. How to initialize the domain. Default Value: "random". Possbible choice are [`half`, `+`, `-`, `random`].
-    * `half`: the right half is spin-up, the left half is spin-down.
-    * `+`: all spins are up.
-    * `-`: all spins are down.
-    * `random`: the spin of a site is sampled from a Bernouilli law with $p=1/2$.
-- `--cmap`. Color map to display the lattice. Default Value: "viridis".
-- `--lb_T`. Temperature's lower bound of the slider. Default value: 10K.
-- `--up_T`. Temperature's upper bound of the slider. Default value: 1000K.
-- `--lb_B`. Manetic field's lower bound of the slider. Default value: -10T.
-- `--ub_B`. Magnetic field's upper bound of the slider. Default value: 10T.
+- `--B`$\textit{(float, optional)}$-external magnetic field applied in Tesla. Default: 0 T.
+- `--T`$\textit{(float, optional)}$-temperature of the thermal bath in kelvin. Default: 300K.
+- `--J`$\textit{(float, optional)}$-exchange Interaction in Joule. Take it negative for antiferromagnetic property.
+Default: $4e-21$ J.
+- `--bound_cond`$\textit{(str, optional)}$-boundary conditions of the domain. Default: "periodic". Possible choices are [`bounded`, `periodic`].
+- `--Initialization`$\textit{(str, optional)}$-how to initialize the domain. Default: "random". Possible choices are [`half`, `+`, `-`, `random`].
+    * `half`-the right half is spin-up, the left half is spin-down.
+    * `+`-all spins are up.
+    * `-`-all spins are down.
+    * `random`-the spin of a site is sampled from a Bernouilli law with $p=1/2$.
+- `--cmap`$\textit{(str, optional)}$-color map to display the lattice. Default: "viridis".
+- `--lb_T`$\textit{(float, optional}$-temperature's lower bound of the slider. Default: 10K.
+- `--up_T`$\textit{(float, optional)}$-temperature's upper bound of the slider. Default: 1000K.
+- `--lb_B`$\textit{(float, optional)}$-magnetic field's lower bound of the slider. Default: -10T.
+- `--ub_B`$\textit{(float, optional)}$-magnetic field's upper bound of the slider. Default: 10T.
 
 ## Project structure
 `ising_model.py` contains the source code to run the simulaton. Two classes are declared: `grid` and `Ising`, to define respectively the lattice hosting the spins and represtent the states and evolution law of the latter.
@@ -50,7 +51,7 @@ You should see appear the lattice evolving in time with two sliders. One vertica
 
 ## Example
 
-This section list several GIF illutrates some interesting properties of the Ising model in 2 dimensions. I average over $100$ (and not $1000$) iterations in the gif though. With the default values, $T\_c \approx 657 K$. Keep in mind that in practice, you need to wait enough iterations to reach a thermodynamic equilibrium.
+This section list several GIF illutrates some interesting properties of the Ising model in 2 dimensions. I average over $100$ (and not $1000$) iterations in the gif though. With the default values, $T\_c \approx 657 K$. Keep in mind that in practice, you need to wait enough iterations to let it relax and reach a thermodynamic equilibrium.
 
 - Case 1: No magnetic field and $T = 300 K < T\_c$. You observe that the material ends up acquiring magnetization.
 
