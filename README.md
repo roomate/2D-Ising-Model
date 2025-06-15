@@ -36,7 +36,7 @@ Default: $4e-21$ J.
 To run the simulation, run in the folder of your choice:
 
 ```bash
-mkdir Ising-Simulation; cd Ising-Simulation; git clone git@github.com:roomate/2D-Ising-Model.git
+git clone git@github.com:roomate/2D-Ising-Model.git
 ```
 ## Run the simulation
 Then, to run the simulation, type the prompt:
